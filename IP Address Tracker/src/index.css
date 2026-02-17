@@ -1,142 +1,183 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
 
-.rubik {
-  font-family: "Rubik", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
-*{
-    padding: 0;
-    margin: 0;
+  * {
     box-sizing: border-box;
-    font-family: "Rubik", sans-serif;
-}
-body{
-    min-height: 100vh;
-    width: clamp(320px, 90vw, 1200px);
-    margin: 0 auto;
-    background-image: url('../images/pattern-bg-desktop.png');
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
+    margin: 0;
+    padding: 0;
+  }
 
+  body {
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+  }
 
-/* Top Search bar box */
-.box-title{
+  /* Layout */
+  .app-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    gap: 15px;
-    margin: 0 auto ;
-    width: clamp(320px, 90vw, 550px);
-    padding: 20px;
-    
-}
-.input-field{
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Header Section */
+  .header {
+    background-image: url("https://raw.githubusercontent.com/raslan07/react-projects-of-front-end-mentor/main/IP%20Address%20Tracker/images/pattern-bg-desktop.png");
+    background-size: cover;
+    background-position: center;
+    background-color: #4d61c6; /* Fallback */
+    height: 300px;
+    padding: 1.5rem;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100%;
-    width: clamp(250px , 90vw , 500px);
-    border: 1px solid rgb(80, 80, 80);
-    box-shadow: 0px 0px 10px rgb(95, 95, 95);
+    gap: 1.5rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  .header h1 {
+    color: white;
+    font-weight: 500;
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+
+  /* Search Bar */
+  .search-form {
+    width: 100%;
+    max-width: 550px;
+    display: flex;
     border-radius: 15px;
     overflow: hidden;
-}
-.search-input {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .search-input {
     flex: 1;
-    height: 50px;
-    width: 90%;
+    padding: 1.2rem;
+    font-size: 1.1rem;
     border: none;
     outline: none;
-    padding: 0 20px;
-    font-size: 18px;
-    color: #333;
-}
-.run{
-    width: 10%;
-    height: 50px;
-    border: none;
-    color: white;
-    background-color: black;
     cursor: pointer;
-}
-.run:disabled{
-    opacity: 0.65;
-    cursor: not-allowed;
-}
-h1{
+  }
+
+  .search-input::placeholder {
+    color: #969696;
+    font-size: 0.9rem;
+  }
+
+  .search-btn {
+    background-color: black;
     color: white;
-    font-weight: 500;
-    font-size: clamp(12px , 4vw , 28px);
-}
-p{
-    text-transform: uppercase;
-}
+    border: none;
+    width: 60px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+  }
 
-/* Information Box */
+  .search-btn:hover {
+    background-color: #3f3f3f;
+  }
 
+  /* Error Message */
+  .error-msg {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    animation: bounce 1s infinite;
+  }
 
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
 
-.inner-box{
+  /* Info Card */
+  .info-card-container {
+    position: absolute;
+    top: 200px; /* Overlap header */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    max-width: 1100px;
+    z-index: 20;
+    background-color: white;
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: clamp(420px , 100vw , 1150px);
-    gap: 30px;
-    border-radius: 12px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 0 15px #7e7e7e;
-    margin-top: 35px;
-    position: absolute;
+    gap: 2rem;
+  }
 
-}
-.info{
-    
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    height: 120px;
-    margin: 25px;
-    padding: 10px;
-    gap:20px;
+  .info-item {
+    flex: 1;
+    border-right: 1px solid #e5e7eb;
+    padding-left: 1.5rem;
+  }
+
+  .info-item:first-child {
+    padding-left: 0;
+  }
+
+  .info-item:last-child {
+    border-right: none;
+  }
+
+  .info-label {
+    color: #969696;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  .info-value {
+    color: #2b2b2b;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+
+  /* Map */
+  .map-wrapper {
+    flex: 1;
     width: 100%;
-    position: relative;
-}
-.info:not(:last-child)::after{
-    content: "";
-    position: absolute;
-    width: 2px;
-    height: 75%;
-    background-color: #d3d3d3;
-    border-radius: 20px;
-    right: -30px;
-    transform: translate(-50% , -50%);
-    top: 50%;
-}
+    z-index: 0;
+    min-height: 60vh; /* Ensure map has height on mobile */
+  }
 
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .header {
+      background-image: url("https://raw.githubusercontent.com/raslan07/react-projects-of-front-end-mentor/main/IP%20Address%20Tracker/images/pattern-bg-mobile.png");
+      height: 350px;
+    }
 
-p{
-    color: rgb(167, 167, 167);
-    font-weight: 600;
-    font-size: 14px;
+    .info-card-container {
+      flex-direction: column;
+      text-align: center;
+      top: 170px;
+      padding: 1.5rem;
+      gap: 1.5rem;
+    }
+
+    .info-item {
+      border-right: none;
+      padding-left: 0;
+    }
     
-}
-h2{
-    color: black;
-    font-size: clamp(12px , 5vw , 27px);
-    font-weight: 500;
-    
-}
-
-.status-message{
-    width: clamp(320px, 90vw, 550px);
-    margin: 12px auto 0;
-    color: #b40000;
-    font-weight: 500;
-}
+    .info-value {
+        font-size: 1.25rem;
+    }
+  }

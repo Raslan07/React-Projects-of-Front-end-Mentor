@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+.rubik {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
+}
+body{
+    min-height: 100vh;
+    width: clamp(320px, 90vw, 1200px);
+    margin: 0 auto;
+    background-image: url('../images/pattern-bg-desktop.png');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+
+/* Top Search bar box */
+.box-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0 auto ;
+    width: clamp(320px, 90vw, 550px);
+    padding: 20px;
+    
+}
+.input-field{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: clamp(250px , 90vw , 500px);
+    border: 1px solid rgb(80, 80, 80);
+    box-shadow: 0px 0px 10px rgb(95, 95, 95);
+    border-radius: 15px;
+    overflow: hidden;
+}
+.search-input {
+    flex: 1;
+    height: 50px;
+    width: 90%;
+    border: none;
+    outline: none;
+    padding: 0 20px;
+    font-size: 18px;
+    color: #333;
+}
+.run{
+    width: 10%;
+    height: 50px;
+    border: none;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+.run:disabled{
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+h1{
+    color: white;
+    font-weight: 500;
+    font-size: clamp(12px , 4vw , 28px);
+}
+p{
+    text-transform: uppercase;
+}
+
+/* Information Box */
+
+
+
+.inner-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: clamp(420px , 100vw , 1150px);
+    gap: 30px;
+    border-radius: 12px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 15px #7e7e7e;
+    margin-top: 35px;
+    position: absolute;
+
+}
+.info{
+    
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 120px;
+    margin: 25px;
+    padding: 10px;
+    gap:20px;
+    width: 100%;
+    position: relative;
+}
+.info:not(:last-child)::after{
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 75%;
+    background-color: #d3d3d3;
+    border-radius: 20px;
+    right: -30px;
+    transform: translate(-50% , -50%);
+    top: 50%;
+}
+
+
+p{
+    color: rgb(167, 167, 167);
+    font-weight: 600;
+    font-size: 14px;
+    
+}
+h2{
+    color: black;
+    font-size: clamp(12px , 5vw , 27px);
+    font-weight: 500;
+    
+}
+
+.status-message{
+    width: clamp(320px, 90vw, 550px);
+    margin: 12px auto 0;
+    color: #b40000;
+    font-weight: 500;
+}

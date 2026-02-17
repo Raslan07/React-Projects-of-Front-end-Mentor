@@ -145,7 +145,7 @@ function MapComponent({ lat, lng, location, isp }) {
         mapInstanceRef.current = null;
       }
     };
-  }, []);
+  }, [isp, lat ,lng ,location]);
 
   // 3. Update Map when coordinates change
   useEffect(() => {
